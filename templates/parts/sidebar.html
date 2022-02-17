@@ -1,0 +1,128 @@
+<aside style="position: fixed;" class="main-sidebar sidebar-dark-primary elevation-4">
+
+  <style>
+    #hello-msg{
+      font-size: 18px;
+      color: rgb(143, 190, 209);
+      margin-right: 20px;
+
+    }
+    #n{
+      font-size: 18px;
+      color: rgb(237, 243, 245);
+      margin-right: 20px;
+
+    }
+  </style>
+    <!-- Brand Logo -->
+    <a href="{% url 'index' %}" class="brand-link">
+      <span class="brand-text font-weight-light">BIBLIOTHEQUE</span>
+    </a>
+
+    
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+        </div>
+        <div class="info">
+          <span id="hello-msg">Hello, {{ request.user }}</span>
+          <span id= "n"><a href="{% url 'logout' %}" class="nav-link">Logout</a></span>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+          <li class="nav-item">
+            <a href="{% url 'books'%}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Livres
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Categorie
+                <i class="fas fa-angle-left right"></i>
+                
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              
+                  <li class="nav-item">
+                    <a id="addcat" href="#" class="nav-link">
+                        <i class="fa fa-plus "></i>
+                        <p  class="text-light"> Add New </p>
+                    </a>
+                  </li> 
+              <form id="cat" method="POST">
+                {% csrf_token %}
+              <div id="catinput">
+                  {{formcat}}
+
+                  <button type="submit" class="btn btn-success">Energister</button>
+                  <button id="backcat" class="btn btn-primary ">Retour</button>
+              </div>
+              </form>  
+                  {% for cat in category %}
+             
+                  <li style="cursor: pointer;" class="nav-item cat{{cat.id}}">
+                    <a id="" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>{{cat.name}}</p>
+                    </a>
+                  </li>
+ 
+                 {% endfor%} 
+
+            </ul>
+          </li>
+
+          <li class="nav-header">Status </li>
+          
+          <li style="cursor: pointer;" class="nav-item statussold">
+            <a id="statusSold" class="nav-link">
+              <i class="nav-icon far fa-circle text-danger"></i>
+              <p class="text">Vendu</p>
+            </a>
+          </li>
+          <li style="cursor: pointer;" class="nav-item statusrental">
+            <a id="" class="nav-link">
+              <i class="nav-icon far fa-circle text-warning"></i>
+              <p>Emprunte </p>
+            </a>
+          </li>
+          <li style="cursor: pointer;" class="nav-item statusavailble">
+            <a id="" class="nav-link">
+              <i class="nav-icon far fa-circle text-info"></i>
+              <p>Disponible</p>
+            </a>
+          </li>
+          
+          
+        </ul>
+
+        
+          
+          
+              
+          
+
+        
+
+
+         
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- في المكان ده هحط المحتوى -->

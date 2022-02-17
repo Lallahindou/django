@@ -1,0 +1,16 @@
+backports.entry-points-selectable==1.1.1
+certifi==2021.10.8
+colorama==0.4.4
+commonmark==0.9.1
+distlib==0.3.4
+filelock==3.4.2
+pipenv==2021.11.23
+pipenv-poetry-migrate==0.2.0
+platformdirs==2.4.1
+Pygments==2.10.0
+rich==9.13.0
+six==1.16.0
+tomlkit==0.8.0
+typing-extensions==3.10.0.2
+virtualenv==20.10.0
+virtualenv-clone==0.5.7
